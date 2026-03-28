@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lista_musicas
+namespace Song_Playlist
 {
     internal class Program
     {
@@ -13,14 +13,17 @@ namespace Lista_musicas
         {
             // basically the user control
             int changeMusic;
+
             // temporary variable for adding a song
             string newSong;
-            // variable for bidirectional lists
+
+            // variable for Linked lists doubly for the next and last song change
             DoublyLinkedList songs = new DoublyLinkedList();
+
             // updates the current song
             string currentSong;
 
-            // a pre-made song playlist
+            // a pre-made song playlist for default songs for the playlist
             string[] greatPlaylist = new string[] {
                 "Bohemian Rhapsody",
                 "Billie Jean",
@@ -33,16 +36,19 @@ namespace Lista_musicas
                 "Hey Jude",
                 "Uptown Funk"
             };
-            // add each one
+
+            // add each song
             foreach (string song in greatPlaylist)
             {
                 songs.Insert(song);
             }
 
+
             while (true)
             {
                 // update current song
-                currentSong = songs.Musica_atual();
+                currentSong = songs.Current_song();
+
                 //
                 Console.WriteLine("Awesome Music App");
 
@@ -74,11 +80,11 @@ namespace Lista_musicas
                 {
                     // options, self-explanatory
                     case 1:
-                        songs.Proxima_musica();
+                        songs.Next_song();
                         break;
 
                     case 2:
-                        songs.Musica_anterior();
+                        songs.Last_song();
                         break;
 
                     case 3:
@@ -89,7 +95,7 @@ namespace Lista_musicas
 
                         if (changeMusic == 1)
                         {
-                            songs.Deletar(songs.Musica_atual());
+                            songs.Delete(songs.Current_song());
                         }
 
                         break;

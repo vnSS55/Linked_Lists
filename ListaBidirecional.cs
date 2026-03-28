@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace Lista_musicas
+namespace Song_Playlist
 {
     public class Node
     {
@@ -57,7 +57,7 @@ namespace Lista_musicas
         }
 
         // gets the current song
-        public string Musica_atual()
+        public string Current_song()
         {
             if (head == null)
             {
@@ -67,7 +67,7 @@ namespace Lista_musicas
         }
 
         // moves to the next song
-        public void Proxima_musica()
+        public void Next_song()
         {
             if (head != null && head.Next != null)
             {
@@ -76,7 +76,7 @@ namespace Lista_musicas
         }
 
         // goes back to the previous song
-        public void Musica_anterior()
+        public void Last_song()
         {
             if (head != null && head.Previous != null)
             {
@@ -85,7 +85,7 @@ namespace Lista_musicas
         }
 
         // deletes a song
-        public void Deletar(string value)
+        public void Delete(string value)
         {
             Node currentNode = head;
 
